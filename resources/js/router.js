@@ -6,7 +6,7 @@ Vue.use(VueRouter)
 
 export default new VueRouter({
 
-    mode:   'history' //сохраняется история как при переходе по ссылкам обычного браузера
+    mode:   'history', //сохраняется история как при переходе по ссылкам обычного браузера
     routes: [ //маршрут
         {
             path:   '/posts',
