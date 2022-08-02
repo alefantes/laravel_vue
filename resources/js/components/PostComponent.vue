@@ -1,12 +1,12 @@
 <template>
-<div>
-sdadsa
+<div class="container">
+    111
 </div>
 </template>
 
 <script>
 export default {
-    name: "PostComponent"
+    name: "PostsComponent"
 }
 </script>
 
