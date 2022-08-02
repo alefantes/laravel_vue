@@ -28116,10 +28116,12 @@ var staticRenderFns = [
             _c("div", { staticClass: "card-header" }, [
               _vm._v("Example Component"),
             ]),
-            _vm._v(" "),
+            _vm._v(
+              "\n111111111111111111111111111111222222\n                    "
+            ),
             _c("div", { staticClass: "card-body" }, [
               _vm._v(
-                "\n                    I'm an example component.\n                "
+                "\n                        I'm an example component.\n                    "
               ),
             ]),
           ]),
