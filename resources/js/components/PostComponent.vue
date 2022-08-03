@@ -3,6 +3,7 @@
     111
     <SinglePostComponent></SinglePostComponent>
     <div class="name">Name: {{name}}</div>
+    <div class="name">Job: {{vasyaJob}}</div>
     <button @click="sayHello">Hello</button>
     <button @click="sayHi">Hi</button>
 </div>
@@ -13,15 +14,21 @@ import SinglePostComponent from "./SinglePostComponent";
 export default {
     name: "PostsComponent",
 
-    data(){
+    data(){ //инициализация данных в данном компоненте
       return{
-          name: 'vasia',
+          name: 'Вася',
           age: 20,
           is_maried:true,
       }
     },
 
-    methods: {
+    computed: { //вычисляемые свойства работа со свойтвами которые еще не проинцилизированы
+        vasyaJob(){
+            return this.name + ' работает в булочной'
+        },
+    },
+
+    methods: { //инициализация методов в данном компоненте
         sayHello(){
            console.log('Hello')
         },
@@ -30,7 +37,7 @@ export default {
         },
     },
 
-    components :{
+    components :{ //подключение компонентов
         SinglePostComponent
     }
 }

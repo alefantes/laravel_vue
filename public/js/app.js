@@ -5277,17 +5277,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "PostsComponent",
   data: function data() {
+    //инициализация данных в данном компоненте
     return {
-      name: 'vasia',
+      name: 'Вася',
       age: 20,
       is_maried: true
     };
   },
+  computed: {
+    //вычисляемые свойства работа со свойтвами которые еще не проинцилизированы
+    vasyaJob: function vasyaJob() {
+      return this.name + ' работает в булочной';
+    }
+  },
   methods: {
+    //инициализация методов в данном компоненте
     sayHello: function sayHello() {
       console.log('Hello');
     },
@@ -5296,6 +5305,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   components: {
+    //подключение компонентов
     SinglePostComponent: _SinglePostComponent__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 });
@@ -28205,6 +28215,10 @@ var render = function () {
       _c("SinglePostComponent"),
       _vm._v(" "),
       _c("div", { staticClass: "name" }, [_vm._v("Name: " + _vm._s(_vm.name))]),
+      _vm._v(" "),
+      _c("div", { staticClass: "name" }, [
+        _vm._v("Job: " + _vm._s(_vm.vasyaJob)),
+      ]),
       _vm._v(" "),
       _c("button", { on: { click: _vm.sayHello } }, [_vm._v("Hello")]),
       _vm._v(" "),
