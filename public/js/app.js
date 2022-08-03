@@ -5274,9 +5274,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "PostsComponent",
+  data: function data() {
+    return {
+      name: 'vasia',
+      age: 20,
+      is_maried: true
+    };
+  },
   components: {
     SinglePostComponent: _SinglePostComponent__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
@@ -28182,7 +28190,12 @@ var render = function () {
   return _c(
     "div",
     { staticClass: "container" },
-    [_vm._v("\n    111\n    "), _c("SinglePostComponent")],
+    [
+      _vm._v("\n    111\n    "),
+      _c("SinglePostComponent"),
+      _vm._v(" "),
+      _c("div", { staticClass: "name" }, [_vm._v("Name: " + _vm._s(_vm.name))]),
+    ],
     1
   )
 }
