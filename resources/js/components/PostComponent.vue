@@ -3,6 +3,8 @@
     111
     <SinglePostComponent></SinglePostComponent>
     <div class="name">Name: {{name}}</div>
+    <button @click="sayHello">Hello</button>
+    <button @click="sayHi">Hi</button>
 </div>
 </template>
 
@@ -17,6 +19,15 @@ export default {
           age: 20,
           is_maried:true,
       }
+    },
+
+    methods: {
+        sayHello(){
+           console.log('Hello')
+        },
+        sayHi(){
+           console.log('Hi')
+        },
     },
 
     components :{
