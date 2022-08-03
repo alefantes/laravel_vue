@@ -5274,74 +5274,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "PostsComponent",
   data: function data() {
     //инициализация данных в данном компоненте
     return {
-      persons: [{
-        id: 1,
-        name: 'Vasya',
-        age: 20,
-        job: 'coach'
-      }, {
-        id: 2,
-        name: 'Elena',
-        age: 17,
-        job: 'rest'
-      }, {
-        id: 3,
-        name: 'Petr',
-        age: 34,
-        job: 'seller'
-      }, {
-        id: 4,
-        name: 'Ksusha',
-        age: 25,
-        job: 'traveler'
-      }, {
-        id: 5,
-        name: 'Olya',
-        age: 21,
-        job: 'teacher'
-      }]
+      persons: []
     };
   },
-  computed: {
-    //вычисляемые свойства работа со свойтвами которые еще не проинцилизированы
-    //<tr v-for="person in persons" v-if="person.age > 20">
-    personsAgeMoreTwenty: function personsAgeMoreTwenty() {
-      //<tr v-for="person in personsAgeMoreTwenty">
-      return this.persons.filter(function (person) {
-        return person.age > 20;
-      });
-    },
-    personsAgeLessTwenty: function personsAgeLessTwenty() {
-      //<tr v-for="person in personsAgeMoreTwenty">
-      return this.persons.filter(function (person) {
-        return person.age <= 20;
+  computed: {//вычисляемые свойства работа со свойтвами которые еще не проинцилизированы
+  },
+  mounted: function mounted() {
+    this.getPosts();
+  },
+  methods: {
+    //инициализация методов в данном компоненте
+    getPosts: function getPosts() {
+      axios.get('/posts').then(function (data) {
+        console.log(data);
       });
     }
-  },
-  methods: {//инициализация методов в данном компоненте
   },
   components: {
     SinglePostComponent: _SinglePostComponent__WEBPACK_IMPORTED_MODULE_0__["default"]
@@ -28245,55 +28198,9 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container" },
-    [
-      _c("SinglePostComponent"),
-      _vm._v(" "),
-      _c("table", { staticClass: "table" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "tbody",
-          _vm._l(_vm.personsAgeMoreTwenty, function (person) {
-            return _c("tr", [
-              _c("th", { attrs: { scope: "row" } }, [
-                _vm._v(_vm._s(person.id)),
-              ]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(person.name))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(person.age))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(person.job))]),
-            ])
-          }),
-          0
-        ),
-      ]),
-    ],
-    1
-  )
+  return _c("div", { staticClass: "container" }, [_c("SinglePostComponent")], 1)
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("First")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Last")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Handle")]),
-      ]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
