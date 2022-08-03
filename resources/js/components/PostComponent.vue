@@ -1,11 +1,24 @@
 <template>
 <div class="container">
-    111
     <SinglePostComponent></SinglePostComponent>
-    <div class="name">Name: {{name}}</div>
-    <div class="name">Job: {{vasyaJob}}</div>
-    <button @click="sayHello">Hello</button>
-    <button @click="sayHi">Hi</button>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="person in persons">
+            <th scope="row">{{person.id}}</th>
+            <td>{{person.name}}</td>
+            <td>{{person.age}}</td>
+            <td>{{person.job}}</td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 </template>
 
@@ -16,29 +29,38 @@ export default {
 
     data(){ //инициализация данных в данном компоненте
       return{
-          name: 'Вася',
-          age: 20,
-          is_maried:true,
+          persons: [
+              {
+                  id:1,
+                  name: 'Vasya',
+                  age: 20,
+                  job: 'coach'
+              },
+              {
+                  id:2,
+                  name: 'Elena',
+                  age: 17,
+                  job: 'rest'
+              },
+              {
+                  id:3,
+                  name: 'Petr',
+                  age: 34,
+                  job: 'seller'
+              },
+          ]
       }
     },
 
     computed: { //вычисляемые свойства работа со свойтвами которые еще не проинцилизированы
-        vasyaJob(){
-            return this.name + ' работает в булочной'
-        },
+
     },
 
     methods: { //инициализация методов в данном компоненте
-        sayHello(){
-           console.log('Hello')
-        },
-        sayHi(){
-           console.log('Hi')
-        },
     },
 
-    components :{ //подключение компонентов
-        SinglePostComponent
+    components :{
+          SinglePostComponent,
     }
 }
 </script>

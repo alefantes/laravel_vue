@@ -5278,34 +5278,48 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "PostsComponent",
   data: function data() {
     //инициализация данных в данном компоненте
     return {
-      name: 'Вася',
-      age: 20,
-      is_maried: true
+      persons: [{
+        id: 1,
+        name: 'Vasya',
+        age: 20,
+        job: 'coach'
+      }, {
+        id: 2,
+        name: 'Elena',
+        age: 17,
+        job: 'rest'
+      }, {
+        id: 3,
+        name: 'Petr',
+        age: 34,
+        job: 'seller'
+      }]
     };
   },
-  computed: {
-    //вычисляемые свойства работа со свойтвами которые еще не проинцилизированы
-    vasyaJob: function vasyaJob() {
-      return this.name + ' работает в булочной';
-    }
+  computed: {//вычисляемые свойства работа со свойтвами которые еще не проинцилизированы
   },
-  methods: {
-    //инициализация методов в данном компоненте
-    sayHello: function sayHello() {
-      console.log('Hello');
-    },
-    sayHi: function sayHi() {
-      console.log('Hi');
-    }
+  methods: {//инициализация методов в данном компоненте
   },
   components: {
-    //подключение компонентов
     SinglePostComponent: _SinglePostComponent__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 });
@@ -28211,23 +28225,51 @@ var render = function () {
     "div",
     { staticClass: "container" },
     [
-      _vm._v("\n    111\n    "),
       _c("SinglePostComponent"),
       _vm._v(" "),
-      _c("div", { staticClass: "name" }, [_vm._v("Name: " + _vm._s(_vm.name))]),
-      _vm._v(" "),
-      _c("div", { staticClass: "name" }, [
-        _vm._v("Job: " + _vm._s(_vm.vasyaJob)),
+      _c("table", { staticClass: "table" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.persons, function (person) {
+            return _c("tr", [
+              _c("th", { attrs: { scope: "row" } }, [
+                _vm._v(_vm._s(person.id)),
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(person.name))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(person.age))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(person.job))]),
+            ])
+          }),
+          0
+        ),
       ]),
-      _vm._v(" "),
-      _c("button", { on: { click: _vm.sayHello } }, [_vm._v("Hello")]),
-      _vm._v(" "),
-      _c("button", { on: { click: _vm.sayHi } }, [_vm._v("Hi")]),
     ],
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("First")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Last")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Handle")]),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 
