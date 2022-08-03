@@ -5312,10 +5312,34 @@ __webpack_require__.r(__webpack_exports__);
         name: 'Petr',
         age: 34,
         job: 'seller'
+      }, {
+        id: 4,
+        name: 'Ksusha',
+        age: 25,
+        job: 'traveler'
+      }, {
+        id: 5,
+        name: 'Olya',
+        age: 21,
+        job: 'teacher'
       }]
     };
   },
-  computed: {//вычисляемые свойства работа со свойтвами которые еще не проинцилизированы
+  computed: {
+    //вычисляемые свойства работа со свойтвами которые еще не проинцилизированы
+    //<tr v-for="person in persons" v-if="person.age > 20">
+    personsAgeMoreTwenty: function personsAgeMoreTwenty() {
+      //<tr v-for="person in personsAgeMoreTwenty">
+      return this.persons.filter(function (person) {
+        return person.age > 20;
+      });
+    },
+    personsAgeLessTwenty: function personsAgeLessTwenty() {
+      //<tr v-for="person in personsAgeMoreTwenty">
+      return this.persons.filter(function (person) {
+        return person.age <= 20;
+      });
+    }
   },
   methods: {//инициализация методов в данном компоненте
   },
@@ -28232,7 +28256,7 @@ var render = function () {
         _vm._v(" "),
         _c(
           "tbody",
-          _vm._l(_vm.persons, function (person) {
+          _vm._l(_vm.personsAgeMoreTwenty, function (person) {
             return _c("tr", [
               _c("th", { attrs: { scope: "row" } }, [
                 _vm._v(_vm._s(person.id)),
