@@ -28223,55 +28223,9 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container" },
-    [
-      _c("SinglePostComponent"),
-      _vm._v(" "),
-      _c("table", { staticClass: "table" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "tbody",
-          _vm._l(_vm.persons, function (person) {
-            return _c("tr", [
-              _c("th", { attrs: { scope: "row" } }, [
-                _vm._v(_vm._s(person.id)),
-              ]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(person.name))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(person.age))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(person.job))]),
-            ])
-          }),
-          0
-        ),
-      ]),
-    ],
-    1
-  )
+  return _c("div", { staticClass: "container" }, [_c("SinglePostComponent")], 1)
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Name")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Age")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Job")]),
-      ]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
