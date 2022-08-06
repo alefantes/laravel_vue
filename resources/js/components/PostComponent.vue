@@ -40,31 +40,15 @@ export default {
     },
 
     mounted() {
-        this.getPersons()
     },
 
     methods: { //инициализация методов в данном компоненте
-        // getPosts(){
-        //     axios.get('/posts').then( (data)=>{
-        //         console.log(data);
-        //     })
-        // },
-        getPersons() {
-            axios.get('/persons')
-                .then((data) => {
-                    // console.log(data);
-                    this.persons = data.data
-                })
-                .catch(error => {
 
-                })
-                .finally()
-        }
     },
 
     components: {
         SinglePostComponent,
-        CreateComponent,
+        CreateComponent
     }
 }
 </script>

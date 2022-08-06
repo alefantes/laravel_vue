@@ -5266,7 +5266,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _SinglePostComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SinglePostComponent */ "./resources/js/components/SinglePostComponent.vue");
 //
 //
 //
@@ -5284,7 +5283,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "CreateComponent",
   data: function data() {
@@ -5296,7 +5294,18 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     addPerson: function addPerson() {
-      console.log(this.name, this.age, this.job);
+      var _this = this;
+
+      axios.post('/api/people', {
+        name: this.name,
+        age: this.age,
+        job: this.job
+      }).then(function (res) {
+        console.log('User: ' + _this.name + ' added');
+        _this.name = null;
+        _this.age = null;
+        _this.job = null;
+      });
     }
   }
 });
@@ -5353,24 +5362,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {//вычисляемые свойства работа со свойтвами которые еще не проинцилизированы
   },
-  mounted: function mounted() {
-    this.getPersons();
-  },
-  methods: {
-    //инициализация методов в данном компоненте
-    // getPosts(){
-    //     axios.get('/posts').then( (data)=>{
-    //         console.log(data);
-    //     })
-    // },
-    getPersons: function getPersons() {
-      var _this = this;
-
-      axios.get('/persons').then(function (data) {
-        // console.log(data);
-        _this.persons = data.data;
-      })["catch"](function (error) {})["finally"]();
-    }
+  mounted: function mounted() {},
+  methods: {//инициализация методов в данном компоненте
   },
   components: {
     SinglePostComponent: _SinglePostComponent__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -28423,8 +28416,13 @@ var render = function () {
     _c("div", { staticClass: "mb-3" }, [
       _c("input", {
         staticClass: "btn btn-primary",
-        attrs: { type: "submit", id: "btn", value: "отправить" },
-        on: { click: _vm.addPerson },
+        attrs: { id: "btn", value: "отправить" },
+        on: {
+          click: function ($event) {
+            $event.preventDefault()
+            return _vm.addPerson.apply(null, arguments)
+          },
+        },
       }),
     ]),
   ])

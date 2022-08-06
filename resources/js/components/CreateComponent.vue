@@ -10,13 +10,12 @@
             <input type="text" class="form-control" v-model="job" id="job" placeholder="job">
         </div>
         <div class="mb-3">
-            <input type="submit" @click="addPerson" class="btn btn-primary" id="btn" value="отправить">
+            <input @click.prevent="addPerson" class="btn btn-primary" id="btn" value="отправить">
         </div>
     </div>
 </template>
 
 <script>
-import SinglePostComponent from "./SinglePostComponent";
 
 export default {
     name: "CreateComponent",
@@ -32,7 +31,13 @@ export default {
 
     methods: {
         addPerson() {
-            console.log(this.name,this.age,this.job)
+            axios.post('/api/people',{name:this.name,age:this.age,job:this.job})
+                .then(res=>{
+                    console.log('User: '+this.name+' added')
+                    this.name = null
+                    this.age = null
+                    this.job = null
+                })
         }
     },
 
