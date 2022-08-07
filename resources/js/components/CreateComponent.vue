@@ -12,11 +12,12 @@
         <div class="mb-3">
             <input @click.prevent="addPerson" class="btn btn-primary" id="btn" value="отправить">
         </div>
+        <SomeComponent></SomeComponent>
     </div>
 </template>
 
 <script>
-
+import SomeComponent from "./SomeComponent";
 export default {
     name: "CreateComponent",
 
@@ -42,6 +43,9 @@ export default {
                 })
         }
     },
+    components: {
+        SomeComponent
+    }
 
 }
 </script>
