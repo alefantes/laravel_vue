@@ -21,7 +21,7 @@
                     <td><a href="#" @click.prevent="changeEditPersonId(person.id,person.name,person.age,person.job)" class="btn btn-success">Edit</a></td>
                     <td><a href="#" @click.prevent="deletePerson(person.id)" class="btn btn-danger">Delete</a></td>
                 </tr>
-                <EditComponent :person="person"></EditComponent>
+                <EditComponent :person="person" ref="edit"></EditComponent>
             </template>
             </tbody>
         </table>
@@ -77,9 +77,10 @@ export default {
         },
         changeEditPersonId(id,name,age,job) {
             this.editPersonId = id,
-            this.name = name,
-            this.age = age,
-            this.job = job
+                console.log(this.$refs)
+            this.$refs.edit.name = name,
+            this.$refs.edit.age = age,
+            this.$refs.edit.job = job
         },
         isEdit(id) {
             return this.editPersonId === id

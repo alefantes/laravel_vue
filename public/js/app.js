@@ -5469,7 +5469,8 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     changeEditPersonId: function changeEditPersonId(id, name, age, job) {
-      this.editPersonId = id, this.name = name, this.age = age, this.job = job;
+      this.editPersonId = id, console.log(this.$refs);
+      this.$refs.edit.name = name, this.$refs.edit.age = age, this.$refs.edit.job = job;
     },
     isEdit: function isEdit(id) {
       return this.editPersonId === id;
@@ -28969,7 +28970,11 @@ var render = function () {
                 ]),
               ]),
               _vm._v(" "),
-              _c("EditComponent", { attrs: { person: person } }),
+              _c("EditComponent", {
+                ref: "edit",
+                refInFor: true,
+                attrs: { person: person },
+              }),
             ]
           }),
         ],
