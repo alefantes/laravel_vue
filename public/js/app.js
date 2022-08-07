@@ -5381,11 +5381,16 @@ __webpack_require__.r(__webpack_exports__);
         _this.people = res.data;
       });
     },
-    updatePerson: function updatePerson() {
-      axios.post('/api/people/{id}', {
+    updatePerson: function updatePerson(id) {
+      var _this2 = this;
+
+      this.editPersonId = null, console.log(this.name, this.age, this.job);
+      axios.patch("/api/people/".concat(id), {
         name: this.name,
         age: this.age,
         job: this.job
+      }).then(function (res) {
+        _this2.getPeople();
       });
     },
     changeEditPersonId: function changeEditPersonId(id, name, age, job) {
@@ -28508,7 +28513,7 @@ var render = function () {
         [
           _vm._l(_vm.people, function (person) {
             return [
-              _c("tr", [
+              _c("tr", { class: _vm.isEdit(person.id) ? "d-none" : "" }, [
                 _c("th", { attrs: { scope: "row" } }, [
                   _vm._v(_vm._s(person.id)),
                 ]),
@@ -28628,7 +28633,7 @@ var render = function () {
                       on: {
                         click: function ($event) {
                           $event.preventDefault()
-                          return _vm.changeEditPersonId(null)
+                          return _vm.updatePerson(person.id)
                         },
                       },
                     },
