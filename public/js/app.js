@@ -5292,6 +5292,9 @@ __webpack_require__.r(__webpack_exports__);
       job: null
     };
   },
+  mounted: function mounted() {
+    this.$parent.$refs.index.indexLog();
+  },
   methods: {
     addPerson: function addPerson() {
       var _this = this;
@@ -5372,7 +5375,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    this.getPeople();
+    this.getPeople(), this.$parent.parentLog(); //через $parent вызываем метод родителя
   },
   methods: {
     getPeople: function getPeople() {
@@ -5407,6 +5410,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     isEdit: function isEdit(id) {
       return this.editPersonId === id;
+    },
+    indexLog: function indexLog() {
+      console.log('this is indexComponent');
     }
   }
 });
@@ -5447,8 +5453,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {//вычисляемые свойства работа со свойтвами которые еще не проинцилизированы
   },
-  mounted: function mounted() {},
-  methods: {//инициализация методов в данном компоненте
+  mounted: function mounted() {
+    this.$refs.index.indexLog(); //вызываем метод другого компонента через  <IndexComponent ref="index"></IndexComponent>
+  },
+  methods: {
+    //инициализация методов в данном компоненте
+    parentLog: function parentLog() {
+      console.log('this is parentComponent');
+    }
   },
   components: {
     // SinglePostComponent,
@@ -28739,7 +28751,11 @@ var render = function () {
   return _c(
     "div",
     { staticClass: "container" },
-    [_c("CreateComponent"), _vm._v(" "), _c("IndexComponent")],
+    [
+      _c("CreateComponent"),
+      _vm._v(" "),
+      _c("IndexComponent", { ref: "index" }),
+    ],
     1
   )
 }

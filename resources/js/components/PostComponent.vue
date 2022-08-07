@@ -2,7 +2,7 @@
     <div class="container">
         <CreateComponent></CreateComponent>
 <!--        <SinglePostComponent></SinglePostComponent>-->
-        <IndexComponent></IndexComponent>
+        <IndexComponent ref="index"></IndexComponent>
     </div>
 </template>
 
@@ -24,10 +24,13 @@ export default {
     },
 
     mounted() {
+        this.$refs.index.indexLog()  //вызываем метод другого компонента через  <IndexComponent ref="index"></IndexComponent>
     },
 
     methods: { //инициализация методов в данном компоненте
-
+        parentLog(){
+            console.log('this is parentComponent');
+        }
     },
 
     components: {

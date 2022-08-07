@@ -28,7 +28,9 @@ export default {
         }
 
     },
-
+    mounted() {
+        this.$parent.$refs.index.indexLog();
+    },
     methods: {
         addPerson() {
             axios.post('/api/people',{name:this.name,age:this.age,job:this.job})
