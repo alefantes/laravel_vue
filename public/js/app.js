@@ -5422,6 +5422,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "IndexComponent",
@@ -5469,8 +5470,12 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     changeEditPersonId: function changeEditPersonId(id, name, age, job) {
-      this.editPersonId = id, console.log(this.$refs);
-      this.$refs.edit.name = name, this.$refs.edit.age = age, this.$refs.edit.job = job;
+      this.editPersonId = id;
+      var editName = "edit_".concat(id);
+      var fullEditName = this.$refs["edit_".concat(id)][0]; // здесь после refs идет не точка, чтобы обратиться дальше а передается в [] //this.$ref.edit.name
+
+      console.log(fullEditName);
+      fullEditName.name = name, fullEditName.age = age, fullEditName.job = job;
     },
     isEdit: function isEdit(id) {
       return this.editPersonId === id;
@@ -28971,7 +28976,7 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("EditComponent", {
-                ref: "edit",
+                ref: "edit_" + person.id,
                 refInFor: true,
                 attrs: { person: person },
               }),
