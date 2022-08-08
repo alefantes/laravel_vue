@@ -2,15 +2,16 @@ import Vue from 'vue'
 import VueRouter from "vue-router";
 import PostComponent from "./components/PostComponent";
 
-Vue.use(VueRouter)
+////маршрут []-всегда для массива {}всегда для объекта
+Vue.use(VueRouter) //использование роутера в своем вью
 
-export default new VueRouter({
+export default new VueRouter({  //export default то что будет импортировано куда-то
 
     mode:   'history', //сохраняется история как при переходе по ссылкам обычного браузера
-    routes: [ //маршрут
+    routes: [
         {
-            path:   '/posts',
-            component:  PostComponent
+            path: '/post',
+            component: PostComponent
         }
     ]
 })
