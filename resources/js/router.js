@@ -16,6 +16,14 @@ export default new VueRouter({  //export default то что будет импо
         {
             path: '/people/create', component: ()=>import('./components/Person/Create'), //динамический импорт
             name: 'person.create' //нейимнг как в роутах ларавел ->name()
+        },
+        {
+            path: '/people/:id/edit', component: ()=>import('./components/Person/Edit'), //динамический импорт
+            name: 'person.edit' //нейимнг как в роутах ларавел ->name()
+        },
+        {
+            path: '/people/show', component: ()=>import('./components/Person/Show'), //динамический импорт
+            name: 'person.show' //нейимнг как в роутах ларавел ->name()
         }
     ]
 })
