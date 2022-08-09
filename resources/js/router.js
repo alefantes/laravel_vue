@@ -10,8 +10,12 @@ export default new VueRouter({  //export default то что будет импо
     mode:   'history', //сохраняется история как при переходе по ссылкам обычного браузера
     routes: [
         {
-            path: '/people', component: ()=>import('./components/Person/Index'), //динамический импорт в стрелочных фция не создается this
+            path: '/people', component: ()=>import('./components/Person/Index'), //динамический импорт
             name: 'person.index'
+        },
+        {
+            path: '/people/create', component: ()=>import('./components/Person/Create'), //динамический импорт
+            name: 'person.create'
         }
     ]
 })
