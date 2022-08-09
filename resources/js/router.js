@@ -11,11 +11,11 @@ export default new VueRouter({  //export default то что будет импо
     routes: [
         {
             path: '/people', component: ()=>import('./components/Person/Index'), //динамический импорт
-            name: 'person.index'
+            name: 'person.index' //нейимнг как в роутах ларавел ->name()
         },
         {
             path: '/people/create', component: ()=>import('./components/Person/Create'), //динамический импорт
-            name: 'person.create'
+            name: 'person.create' //нейимнг как в роутах ларавел ->name()
         }
     ]
 })
