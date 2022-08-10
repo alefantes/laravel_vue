@@ -59,7 +59,12 @@ __webpack_require__.r(__webpack_exports__);
         name: this.name,
         age: this.age,
         job: this.job
-      }).then(_router__WEBPACK_IMPORTED_MODULE_0__["default"].push('person.show'));
+      }).then(_router__WEBPACK_IMPORTED_MODULE_0__["default"].push({
+        name: 'person.show',
+        params: {
+          id: this.$route.params.id
+        }
+      }));
     }
   }
 });

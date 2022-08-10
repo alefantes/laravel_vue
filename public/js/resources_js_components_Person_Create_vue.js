@@ -146,92 +146,94 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "w-25" }, [
-    _c("div", { staticClass: "mb-3" }, [
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.name,
-            expression: "name",
-          },
-        ],
-        staticClass: "form-control",
-        attrs: { type: "text", placeholder: "name" },
-        domProps: { value: _vm.name },
-        on: {
-          input: function ($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.name = $event.target.value
-          },
-        },
-      }),
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "mb-3" }, [
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.age,
-            expression: "age",
-          },
-        ],
-        staticClass: "form-control",
-        attrs: { type: "number", placeholder: "age" },
-        domProps: { value: _vm.age },
-        on: {
-          input: function ($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.age = $event.target.value
-          },
-        },
-      }),
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "mb-3" }, [
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.job,
-            expression: "job",
-          },
-        ],
-        staticClass: "form-control",
-        attrs: { type: "text", placeholder: "job" },
-        domProps: { value: _vm.job },
-        on: {
-          input: function ($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.job = $event.target.value
-          },
-        },
-      }),
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "mb-3" }, [
-      _c("input", {
-        staticClass: "btn btn-primary",
-        attrs: { type: "submit", value: "Add" },
-        on: {
-          click: function ($event) {
-            $event.preventDefault()
-            return _vm.store.apply(null, arguments)
-          },
-        },
-      }),
-    ]),
-  ])
+  return _vm.person
+    ? _c("div", { staticClass: "w-25" }, [
+        _c("div", { staticClass: "mb-3" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.name,
+                expression: "name",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "name" },
+            domProps: { value: _vm.name },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.name = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "mb-3" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.age,
+                expression: "age",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "number", placeholder: "age" },
+            domProps: { value: _vm.age },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.age = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "mb-3" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.job,
+                expression: "job",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "job" },
+            domProps: { value: _vm.job },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.job = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "mb-3" }, [
+          _c("input", {
+            staticClass: "btn btn-primary",
+            attrs: { type: "submit", value: "Add" },
+            on: {
+              click: function ($event) {
+                $event.preventDefault()
+                return _vm.store.apply(null, arguments)
+              },
+            },
+          }),
+        ]),
+      ])
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
