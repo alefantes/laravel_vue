@@ -11,7 +11,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../router */ "./resources/js/router.js");
 //
 //
 //
@@ -29,7 +28,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Edit",
   data: function data() {
@@ -47,19 +45,19 @@ __webpack_require__.r(__webpack_exports__);
     getPerson: function getPerson() {
       var _this = this;
 
-      axios.get('/api/people/' + this.$route.params.id).then(function (res) {
-        _this.name = res.data.name;
-        _this.age = res.data.age;
-        _this.job = res.data.job;
-        console.log(res.data);
+      axios.get("/api/people/".concat(this.$route.params.id)).then(function (res) {
+        _this.name = res.data.data.name;
+        _this.age = res.data.data.age;
+        _this.job = res.data.data.job;
+        console.log(res.data.data);
       });
     },
     updatePerson: function updatePerson() {
-      axios.patch('/api/people/' + this.$route.params.id, {
+      axios.patch("/api/people/".concat(this.$route.params.id), {
         name: this.name,
         age: this.age,
         job: this.job
-      }).then(_router__WEBPACK_IMPORTED_MODULE_0__["default"].push({
+      }).then(this.$router.push({
         name: 'person.show',
         params: {
           id: this.$route.params.id

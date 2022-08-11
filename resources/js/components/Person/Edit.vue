@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import router from "../../router";
+
 export default {
     name: "Edit",
     data() { //МЕТОД ДАТА он возвращает объект
@@ -31,18 +31,18 @@ export default {
     },
     methods: {
         getPerson() {
-            axios.get('/api/people/' + this.$route.params.id)
+            axios.get(`/api/people/${this.$route.params.id}`)
                 .then(res => {
-                    this.name = res.data.name
-                    this.age = res.data.age
-                    this.job = res.data.job
-                    console.log(res.data);
+                    this.name = res.data.data.name
+                    this.age = res.data.data.age
+                    this.job = res.data.data.job
+                    console.log(res.data.data);
                 })
         },
         updatePerson(){
-            axios.patch('/api/people/' + this.$route.params.id,{name: this.name,age:this.age,job:this.job})
+            axios.patch(`/api/people/${this.$route.params.id}`,{name: this.name,age:this.age,job:this.job})
                 .then(
-                    router.push({name:'person.show',params:{id:this.$route.params.id} })
+                    this.$router.push({name:'person.show',params:{id:this.$route.params.id} })
                 )
         }
     }
