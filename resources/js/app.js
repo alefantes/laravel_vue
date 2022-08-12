@@ -5,9 +5,9 @@ import Index from "./components/Index";
 require('./bootstrap');
 
 const app = new Vue({
-    el:'#app',
+    // el:'#app',
     components :{
         Index
     },
     router //подключаем просо роутер, так как он не компонент а JS файл
-})
+}).$mount('#app')

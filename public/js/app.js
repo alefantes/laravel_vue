@@ -5298,13 +5298,13 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 var app = new vue__WEBPACK_IMPORTED_MODULE_2__["default"]({
-  el: '#app',
+  // el:'#app',
   components: {
     Index: _components_Index__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   router: _router__WEBPACK_IMPORTED_MODULE_0__["default"] //подключаем просо роутер, так как он не компонент а JS файл
 
-});
+}).$mount('#app');
 
 /***/ }),
 
