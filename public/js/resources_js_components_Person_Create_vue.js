@@ -38,11 +38,6 @@ __webpack_require__.r(__webpack_exports__);
       job: null
     };
   },
-  computed: {
-    isDisabled: function isDisabled() {
-      return true;
-    }
-  },
   methods: {
     store: function store() {
       var _this = this;
@@ -61,6 +56,11 @@ __webpack_require__.r(__webpack_exports__);
         _this.$router.push('person.index'); //редирект на другую ссылку
 
       });
+    }
+  },
+  computed: {
+    isDisabled: function isDisabled() {
+      return this.name && this.age && this.job;
     }
   }
 });
@@ -227,7 +227,7 @@ var render = function () {
     _c("div", { staticClass: "mb-3" }, [
       _c("input", {
         staticClass: "btn btn-primary",
-        attrs: { disabled: _vm.isDisabled, type: "submit", value: "Add" },
+        attrs: { disabled: !_vm.isDisabled, type: "submit", value: "Add" },
         on: {
           click: function ($event) {
             $event.preventDefault()
