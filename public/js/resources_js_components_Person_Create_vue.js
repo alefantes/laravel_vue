@@ -38,25 +38,19 @@ __webpack_require__.r(__webpack_exports__);
       job: null
     };
   },
-  methods: {
-    store: function store() {
-      var _this = this;
-
-      axios.post('/api/people', {
-        name: this.name,
-        age: this.age,
-        job: this.job
-      }).then(function (res) {
-        //можно стереть данные. а можно сделать редирект
-        console.log('User: ' + _this.name + ' added');
-        _this.name = null;
-        _this.age = null;
-        _this.job = null;
-
-        _this.$router.push('person.index'); //редирект на другую ссылку
-
-      });
-    }
+  methods: {// store() {
+    //     axios.post('/api/people', {name: this.name, age: this.age, job: this.job})
+    //         .then(res => {
+    //             //можно стереть данные. а можно сделать редирект
+    //             console.log('User: ' + this.name + ' added')
+    //             this.name = null
+    //             this.age = null
+    //             this.job = null
+    //
+    //             this.$router.push('person.index') //редирект на другую ссылку
+    //
+    //         })
+    // }
   },
   computed: {
     isDisabled: function isDisabled() {
@@ -231,7 +225,11 @@ var render = function () {
         on: {
           click: function ($event) {
             $event.preventDefault()
-            return _vm.store.apply(null, arguments)
+            return _vm.$store.dispatch("store", {
+              name: _vm.name,
+              age: _vm.age,
+              job: _vm.job,
+            })
           },
         },
       }),

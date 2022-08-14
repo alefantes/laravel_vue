@@ -5499,6 +5499,17 @@ var actions = {
         id: data.id
       }
     }));
+  },
+  store: function store(_ref5, data) {
+    _objectDestructuringEmpty(_ref5);
+
+    axios.post('/api/people', {
+      name: data.name,
+      age: data.age,
+      job: data.job
+    }).then(function (res) {
+      _router__WEBPACK_IMPORTED_MODULE_0__["default"].push('person.index'); //редирект на другую ссылку
+    });
   }
 };
 var mutations = {

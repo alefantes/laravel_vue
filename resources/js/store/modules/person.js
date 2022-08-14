@@ -34,6 +34,12 @@ const actions = { //methods Vue
             .then(
                 router.push({name:'person.show',params:{id:data.id} })
             )
+    },
+    store({},data) {
+        axios.post('/api/people', {name: data.name, age: data.age, job: data.job})
+            .then(res => {
+                router.push('person.index') //редирект на другую ссылку
+            })
     }
 }
 
