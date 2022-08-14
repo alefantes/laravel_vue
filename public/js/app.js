@@ -5445,6 +5445,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../router */ "./resources/js/router.js");
+function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
+
+
 var state = {
   //data Vue
   person: null,
@@ -5480,6 +5484,21 @@ var actions = {
       console.log('deleteled');
       dispatch('getPeople');
     });
+  },
+  updatePerson: function updatePerson(_ref4, data) {
+    _objectDestructuringEmpty(_ref4);
+
+    //даже если ничего не передаем показыавем пустой объект {}
+    axios.patch("/api/people/".concat(data.id), {
+      name: data.name,
+      age: data.age,
+      job: data.job
+    }).then(_router__WEBPACK_IMPORTED_MODULE_0__["default"].push({
+      name: 'person.show',
+      params: {
+        id: data.id
+      }
+    }));
   }
 };
 var mutations = {

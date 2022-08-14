@@ -1,3 +1,4 @@
+import router from "../../router";
 const state = { //data Vue
     person: null,
     people: null
@@ -27,6 +28,12 @@ const actions = { //methods Vue
                 console.log('deleteled');
                 dispatch('getPeople')
             })
+    },
+    updatePerson({},data){ //даже если ничего не передаем показыавем пустой объект {}
+        axios.patch(`/api/people/${data.id}`,{name: data.name,age:data.age,job:data.job})
+            .then(
+                router.push({name:'person.show',params:{id:data.id} })
+            )
     }
 }
 
