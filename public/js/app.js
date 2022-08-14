@@ -5301,14 +5301,14 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 var app = new vue__WEBPACK_IMPORTED_MODULE_3__["default"]({
-  // el:'#app',
+  el: '#app',
   components: {
     Index: _components_Index__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   router: _router__WEBPACK_IMPORTED_MODULE_1__["default"],
   //подключаем просо роутер, так как он не компонент а JS файл
   store: _store__WEBPACK_IMPORTED_MODULE_0__["default"]
-}).$mount('#app');
+}); //.$mount('#app')
 
 /***/ }),
 
@@ -5421,7 +5421,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _modules_person__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/person */ "./resources/js/store/modules/person.js");
-/* harmony import */ var _modules_person__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_modules_person__WEBPACK_IMPORTED_MODULE_0__);
 
 
 
@@ -5429,7 +5428,7 @@ vue__WEBPACK_IMPORTED_MODULE_1__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_2_
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
   modules: {
     //модули аналогия с компонентами
-    Person: (_modules_person__WEBPACK_IMPORTED_MODULE_0___default())
+    Person: _modules_person__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 }));
 
@@ -5439,9 +5438,46 @@ vue__WEBPACK_IMPORTED_MODULE_1__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_2_
 /*!**********************************************!*\
   !*** ./resources/js/store/modules/person.js ***!
   \**********************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var state = {
+  //data Vue
+  person: null
+};
+var getters = {
+  //геттеры
+  person: function person(state) {
+    return state.person;
+  }
+};
+var actions = {
+  //methods Vue
+  getPerson: function getPerson(_ref, id) {
+    var commit = _ref.commit;
+    //commit то переача сеттера мутации но не напрямую а через зарезервированный метод
+    axios.get("/api/people/".concat(id)).then(function (res) {
+      commit('setPerson', res.data.data);
+    });
+  }
+};
+var mutations = {
+  //сеттеры
+  setPerson: function setPerson(state, person) {
+    state.person = person;
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  state: state,
+  mutations: mutations,
+  getters: getters,
+  actions: actions //экспортируем объект, который состоит из перечисленных объектов
 
+});
 
 /***/ }),
 
@@ -44690,18 +44726,6 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 				}
 /******/ 			}
 /******/ 			return result;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
 /******/ 		};
 /******/ 	})();
 /******/ 	

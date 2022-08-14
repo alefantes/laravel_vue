@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="person">
         <div>
             Name: {{this.person.name}}
         </div>
@@ -21,8 +21,10 @@ export default {
             'person':null
         }
     },
+
     mounted() {
-        this.getPerson()
+        // this.getPerson()
+        console.log(this.$store.dispatch('getPerson',this.$route.params.id))
     },
     methods:{
         getPerson() {
