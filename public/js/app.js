@@ -5447,12 +5447,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var state = {
   //data Vue
-  person: null
+  person: null,
+  people: null
 };
 var getters = {
   //геттеры
   person: function person() {
     return state.person;
+  },
+  people: function people() {
+    return state.people;
   }
 };
 var actions = {
@@ -5463,12 +5467,28 @@ var actions = {
     axios.get("/api/people/".concat(id)).then(function (res) {
       commit('setPerson', res.data.data);
     });
+  },
+  getPeople: function getPeople(_ref2) {
+    var commit = _ref2.commit;
+    axios.get('/api/people').then(function (res) {
+      commit('setPeople', res.data.data);
+    });
+  },
+  deletePerson: function deletePerson(_ref3, id) {
+    var dispatch = _ref3.dispatch;
+    axios["delete"]("/api/people/".concat(id)).then(function (res) {
+      console.log('deleteled');
+      dispatch('getPeople');
+    });
   }
 };
 var mutations = {
   //сеттеры
   setPerson: function setPerson(state, person) {
     state.person = person;
+  },
+  setPeople: function setPeople(state, people) {
+    state.people = people;
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
