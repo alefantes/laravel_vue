@@ -3,9 +3,7 @@ const state = { //data Vue
 }
 
 const getters = { //геттеры
-    person: state => {
-        return state.person
-    }
+    person: () => state.person
 }
 
 const actions = { //methods Vue
