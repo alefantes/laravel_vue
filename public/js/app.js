@@ -5451,7 +5451,7 @@ var state = {
 };
 var getters = {
   //геттеры
-  person: function person(state) {
+  person: function person() {
     return state.person;
   }
 };
